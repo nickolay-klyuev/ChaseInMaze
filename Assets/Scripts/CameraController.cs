@@ -19,15 +19,15 @@ public class CameraController : MonoBehaviour
         {
             transform.position += new Vector3(0, 0, speedOfMoving) * Time.deltaTime;
         }
-        else if (Input.GetButton("Down"))
+        if (Input.GetButton("Down"))
         {
             transform.position += new Vector3(0, 0, -speedOfMoving) * Time.deltaTime;
         }
-        else if (Input.GetButton("Left"))
+        if (Input.GetButton("Left"))
         {
             transform.position += new Vector3(-speedOfMoving, 0, 0) * Time.deltaTime;
         }
-        else if (Input.GetButton("Right"))
+        if (Input.GetButton("Right"))
         {
             transform.position += new Vector3(speedOfMoving, 0, 0) * Time.deltaTime;
         }
