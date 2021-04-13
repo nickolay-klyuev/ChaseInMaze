@@ -19,7 +19,10 @@ public class TerrainController : MonoBehaviour
     }
 
     void OnMouseDown()
-    { 
+    {
+        // Create select box
+        
+
         foreach(ObjectController objectController in objectControllers)
         {
             objectController.ChangeMaterial();
