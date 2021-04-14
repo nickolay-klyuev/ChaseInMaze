@@ -24,7 +24,8 @@ public class EnemyController : MonoBehaviour
 
         if (isMoving)
         {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, transform.position.y, -10),
+            ObjectController objectController = GameObject.FindObjectOfType<ObjectController>();
+            transform.position = Vector3.MoveTowards(transform.position, objectController.transform.position,
                                                     enemyMoveSpeed * Time.deltaTime);
         }
     }
