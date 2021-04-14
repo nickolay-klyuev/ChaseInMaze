@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Up"))
+        /*if (Input.GetButton("Up"))
         {
             transform.position += new Vector3(0, 0, speedOfMoving) * Time.deltaTime;
         }
@@ -30,6 +30,6 @@ public class CameraController : MonoBehaviour
         if (Input.GetButton("Right"))
         {
             transform.position += new Vector3(speedOfMoving, 0, 0) * Time.deltaTime;
-        }
+        }*/
     }
 }
