@@ -12,6 +12,8 @@ public class ObjectController : MonoBehaviour
     public Material defaultMaterial;
 
     private bool isSelected = false;
+    private bool isChasing = false;
+    private GameObject enemyForChasing;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,12 @@ public class ObjectController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isChasing)
+        {
+
+            xTarget = enemyForChasing.transform.position.x;
+            zTarget = enemyForChasing.transform.position.z;
+        }
         float step = moveSpeed * Time.deltaTime;
         Vector3 target = new Vector3(xTarget, transform.position.y, zTarget);
         transform.position = Vector3.MoveTowards(transform.position, target, step);
@@ -45,6 +53,17 @@ public class ObjectController : MonoBehaviour
     public bool GetIsSelected()
     {
         return isSelected;
+    }
+
+    public void ChaseEnemy(GameObject enemy)
+    {
+        SetIsChasing(true);
+        enemyForChasing = enemy;
+    }
+
+    public void SetIsChasing(bool chasing)
+    {
+        isChasing = chasing;
     }
 
     public void ChangeMaterial(string materialType = "default")
