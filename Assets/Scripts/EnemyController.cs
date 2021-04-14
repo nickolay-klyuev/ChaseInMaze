@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public float enemyMoveSpeed = 2f;
+
+    private bool isMoving = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +17,16 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, new Vector3(100, transform.position.y, 100), 2f * Time.deltaTime);
+        if (Mathf.Abs(transform.rotation.x) > 0.2f || Mathf.Abs(transform.rotation.z) > 0.2f)
+        {
+            isMoving = false;
+        }
+
+        if (isMoving)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, transform.position.y, -10),
+                                                    enemyMoveSpeed * Time.deltaTime);
+        }
     }
 
     void OnMouseOver()

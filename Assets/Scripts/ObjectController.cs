@@ -26,7 +26,6 @@ public class ObjectController : MonoBehaviour
     {
         if (isChasing)
         {
-
             xTarget = enemyForChasing.transform.position.x;
             zTarget = enemyForChasing.transform.position.z;
         }

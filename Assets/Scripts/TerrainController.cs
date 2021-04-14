@@ -40,6 +40,7 @@ public class TerrainController : MonoBehaviour
                 {
                     if (Physics.Raycast(ray, out hit))
                     {
+                        objectController.SetIsChasing(false);
                         objectController.xTarget = hit.point.x;
                         objectController.zTarget = hit.point.z;
                     }
