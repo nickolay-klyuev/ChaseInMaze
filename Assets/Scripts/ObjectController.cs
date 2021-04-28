@@ -48,7 +48,29 @@ public class ObjectController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isChasing)
+        Vector3 cameraForward = Camera.main.transform.forward * Time.deltaTime * moveSpeed;
+        Vector3 cameraRight = Camera.main.transform.right * Time.deltaTime * moveSpeed;
+        Vector3 adaptiveCameraForward = new Vector3(cameraForward.x, 0, cameraForward.z);
+        Vector3 adaptiveCameraRight = new Vector3(cameraRight.x, 0, cameraRight.z);
+
+        if (Input.GetButton("Up"))
+        {
+            transform.position = transform.position + adaptiveCameraForward;
+        }
+        if (Input.GetButton("Down"))
+        {
+            transform.position = transform.position - adaptiveCameraForward;
+        }
+        if (Input.GetButton("Right"))
+        {
+            transform.position = transform.position + adaptiveCameraRight;
+        }
+        if (Input.GetButton("Left"))
+        {
+            transform.position = transform.position - adaptiveCameraRight;
+        }
+
+        /*if (isChasing)
         {
             xTarget = enemyForChasing.transform.position.x;
             zTarget = enemyForChasing.transform.position.z;
@@ -60,7 +82,7 @@ public class ObjectController : MonoBehaviour
         if (isSelected)
         {
             ChangeMaterial("selected");
-        }
+        }*/
     }
 
     void OnMouseDown()
