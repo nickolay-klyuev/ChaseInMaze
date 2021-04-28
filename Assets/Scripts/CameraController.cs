@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public float speedOfMoving = 1f;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +15,13 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float horisontal = speedOfMoving * Input.GetAxis("Mouse X");
+        float vertical = speedOfMoving * Input.GetAxis("Mouse Y");
+
+        Vector3 rotateValue = new Vector3(vertical, horisontal * -1, 0f);
+
+        transform.eulerAngles = transform.eulerAngles - rotateValue;
+
         /*if (Input.GetButton("Up"))
         {
             transform.position += new Vector3(0, 0, speedOfMoving) * Time.deltaTime;
