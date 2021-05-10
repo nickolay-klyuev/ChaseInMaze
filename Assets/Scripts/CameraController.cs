@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public float speedOfMoving = 1f;
+    public GameObject player;
     
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,9 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 playerPosition = player.transform.position;
+        transform.position = new Vector3(playerPosition.x, transform.position.y, playerPosition.z);
+
         float horisontal = speedOfMoving * Input.GetAxis("Mouse X");
         float vertical = speedOfMoving * Input.GetAxis("Mouse Y");
 

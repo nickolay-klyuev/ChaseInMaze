@@ -70,6 +70,8 @@ public class ObjectController : MonoBehaviour
             transform.position = transform.position - adaptiveCameraRight;
         }
 
+        transform.eulerAngles = new Vector3(0, Camera.main.transform.rotation.eulerAngles.y, 0);
+
         /*if (isChasing)
         {
             xTarget = enemyForChasing.transform.position.x;
