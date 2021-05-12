@@ -43,12 +43,12 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    /*void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.GetComponent<ObjectController>() != null)
         {
             Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
         }
-    }*/
+    }
 }
