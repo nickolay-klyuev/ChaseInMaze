@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyController : MonoBehaviour
 {
@@ -41,4 +42,13 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
+
+    /*void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.GetComponent<ObjectController>() != null)
+        {
+            Scene scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scene.name);
+        }
+    }*/
 }

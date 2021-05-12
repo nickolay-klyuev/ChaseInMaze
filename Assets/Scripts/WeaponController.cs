@@ -13,9 +13,20 @@ public class WeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Transform parent = transform.parent.transform;
+
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("works ");
+            parent.GetComponent<Animator>().SetTrigger("WeaponHitTrigger");
+        }
+
+        if (parent.localEulerAngles.y >= 90 && parent.localEulerAngles.y <= 270)
+        {
+            EnabledComponents(true);
+        }
+        else
+        {
+            EnabledComponents(false);
         }
     }
 

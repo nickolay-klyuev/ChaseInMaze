@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ObjectController : MonoBehaviour
 {
@@ -107,15 +106,6 @@ public class ObjectController : MonoBehaviour
         else
         {
             GetComponent<MeshRenderer>().material = defaultMaterial;
-        }
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.transform.GetComponent<EnemyController>() != null)
-        {
-            Scene scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
         }
     }
 }
